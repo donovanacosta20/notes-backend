@@ -23,6 +23,7 @@ let notes = [
     }
 ]
 
+app.use(express.static('build'));
 app.use(express.json());
 app.use(cors());
 
@@ -53,7 +54,7 @@ app.delete('/api/notes/:id', (request, response) => {
 });
 
 const generateId = () => {
-    const maxid = notes.lenght > 0 ? Math.max(...notes.map(note => notes.id)) : 0;
+    const maxid = notes.lenght > 0 ? Math.max(...notes.map(note => note.id)) : 0;
 
     return maxid + 1;
 }
