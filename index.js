@@ -54,7 +54,7 @@ app.delete('/api/notes/:id', (request, response) => {
 });
 
 const generateId = () => {
-    const maxid = notes.lenght > 0 ? Math.max(...notes.map(note => note.id)) : 0;
+    const maxid = notes.length > 0 ? Math.max(...notes.map(note => note.id)) : 0;
 
     return maxid + 1;
 }
