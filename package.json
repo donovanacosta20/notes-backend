@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ~/workstation/fullstackopen/'part 2'/notes && npm run build --prod && cp -r build ~/workstation/'fullstackopen backend'/notes-backend/",
+    "deploy": "git push heroku main",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
+    "logs:prod": "heroku logs --tail"
   },
   "author": "Donovan Acosta",
   "license": "MIT",
@@ -16,5 +20,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donovanacosta20/notes-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/donovanacosta20/notes-backend/issues"
+  },
+  "homepage": "https://github.com/donovanacosta20/notes-backend#readme"
 }
