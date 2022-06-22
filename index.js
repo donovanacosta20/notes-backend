@@ -1,10 +1,15 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
 app.use(express.static('build'));
 
-require('dotenv').config();
+
 const Note = require('./models/note')
 
 app.use(express.json());
